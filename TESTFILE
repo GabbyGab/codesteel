@@ -12,11 +12,13 @@ using namespace std;
 class gabby
 {
       public:
-             int x, y, sum;
+             int x, y, sum,subt;
              int test()
              {
                  sum=1+1;
                  cout<<sum;
+                 subt=1-1;
+                 cout<<subt
                  return 0;
              }
 
@@ -28,8 +30,10 @@ int main()
     cout<<"Hello world\n\n";
     gab.test();
     cout<<endl;
-system("pause");
-return 0;
+    cout<<"I love Github! <3";
+    
+    system("pause");
+    return 0;
 }
 
 
