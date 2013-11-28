@@ -5,31 +5,49 @@ Type anything out here for testing purposes for Case Study.
 /* Author of Code below: Adrian Adame
    Date: 11.28.13 */
    
-#include<iostream>
+ #include <iostream>
+#include <string>
+
 using namespace std;
 
-
-class gabby
+int main ()
 {
-      public:
-             int x, y, sum;
-             int test()
-             {
-                 sum=1+1;
-                 cout<<sum;
-                 return 0;
-             }
-
-};
-
-int main()
-{
-    gabby gab;
-    cout<<"Hello world\n\n";
-    gab.test();
-    cout<<endl;
-system("pause");
-return 0;
+    int length=0, dash, x=0, digit=0;
+    string tel;
+ 
+    cout << " Input telephone number:";
+    getline (cin,tel);
+    cout << endl;
+    
+    digit = tel.at(0);
+    length = tel.length();
+    dash = tel.find ("-");
+   
+ 
+      if (digit != x && length == 8 && dash == 3)
+      {
+       cout << " The number is valid." << endl;         
+      } 
+      
+      else if (digit != x && length == 7 && dash != 4)
+      {
+       cout << " The number is valid BUT is not in proper format." << endl;         
+      } 
+      else if (digit == x && length != 7 && dash != 3)
+      {
+       cout << " The number is NOT valid." << endl;         
+      }
+      else if (digit != x && length == 7 && dash != 3)
+      {
+       cout << " The number is INVALID." << endl;         
+      }
+      else 
+       cout << " Sorry please try again." << endl;
+ 
+ cin.get ();
+ cin.get ();
+ cin.get ();
+ return 0;
 }
 
 
