@@ -12,14 +12,43 @@ using namespace std;
 class gabby
 {
       public:
-             int x, y, sum;
-             int test()
+             public:
+             int x, y, sum, diff, prod, quo;
+             
+             int add()
              {
-                 sum=1+1;
+                 sum=x+y;
                  cout<<sum;
-                 return 0;
+                 return sum;
              }
-
+             int sub()
+             {
+                 diff=x-y;
+                 cout<<diff;
+                 return diff;
+             }
+             int multi()
+             {
+                 prod=x*y;
+                 cout<<prod;
+                 return prod;
+             }
+             int div()
+             {
+                 if (y==0)
+                 {
+                 cout<<"You cannot divide by 0"<<endl;
+                 return 0;
+                 }
+                 else
+                 {
+                 quo=x/y;
+                 cout<<quo;
+                 return quo;
+                 }
+                 
+             }
+//i edited the class. it now has a calculator function.
 };
 
 int main()
