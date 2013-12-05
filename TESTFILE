@@ -5,32 +5,79 @@ Type anything out here for testing purposes for Case Study.
 /* Author of Code below: Adrian Adame
    Date: 11.28.13 */
    
-#include<iostream>
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <stdio.h>
+#include <conio.h>
 using namespace std;
 
+float gross(float rate, float hours);
+float tax(float rate,float hours);
+float net(float rate, float hours);
 
-class gabby
-{
-      public:
-             int x, y, sum;
-             int test()
-             {
-                 sum=1+1;
-                 cout<<sum;
-                 return 0;
-             }
 
-};
-
-int main()
-{
-    gabby gab;
-    cout<<"Hello world\n\n";
-    gab.test();
-    cout<<endl;
-system("pause");
-return 0;
+int main(){
+           string name,name2;
+           int n,i=0;
+           float rate, hours,total=0,total2=0,total3=0;
+           ofstream outdata;
+           
+           outdata.open("C:Amount.txt");
+           outdata << setw(10) << "Employee Name"
+                   << setw(10) << "Rate"
+                   << setw(10) << "Hours"
+                   << setw(10) << "Gross"
+                   << setw(10) << "Tax"
+                   << setw(10) << "Net" << endl;
+           
+           cout << "\nInput number of employees:";
+           cin >> n;
+           
+           i=0;
+           while (i<n)
+           {     cout << "\nInput employee name:";
+                 getline(cin,name);
+                 getline(cin,name2);
+                 cout << "\nInput hourly rate:";
+                 cin >> rate;
+                 cout << "\nInput hours worked:";
+                 cin >> hours;
+                 cout << "\nGross amount =" << gross(rate,hours) << endl;
+                 cout << "\nTax Payment =" << tax(rate,hours) << endl;
+                 cout << "\nNet Amount = " << net(rate,hours) << endl;
+                 
+                 
+                 
+                 outdata << setprecision(2) << fixed << name 
+                         << setw(2) << name2
+                         << setw(10) << rate
+                         << setw(10) << hours
+                         << setw(10) << gross(rate,hours)
+                         << setw(10) << tax(rate, hours)
+                         << setw(10) << net(rate,hours) << endl;
+                 
+                 total=total+gross(rate,hours);
+                 total2=total2+tax(rate,hours);
+                 total3=total3+net(rate,hours);
+                 i++;
+                 }
+           
+           outdata << setw(34) << setprecision(2) << fixed << "Total" << setw(10) << total << setw(10) << total2 << setw(10) << total3 << endl;
+           cout << "\nList of amounts is created." << endl;
+           outdata.close();
+           system("PAUSE");
+           return 0;
 }
+
+float gross(float rate, float hours)
+{ return rate*hours; }
+float tax(float rate,float hours)
+{ return rate*hours*.20;}
+float net(float rate, float hours)
+{ return ((rate*hours)-(rate*hours*.20));}
+
 
 
 
